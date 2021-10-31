@@ -1,0 +1,7 @@
+{
+  "name": "Haluga",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue"
+}
