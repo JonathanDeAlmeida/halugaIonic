@@ -5,8 +5,8 @@
               <ion-row>
                   <ion-col class="ion-align-self-start text-align-center">
                     <ion-select style="float: left" v-model="form.intent">
-                      <ion-select-option value="rent">Alugar</ion-select-option>
                       <ion-select-option value="sell">Vender</ion-select-option>
+                      <ion-select-option value="rent">Alugar</ion-select-option>
                     </ion-select>
                   </ion-col>
               </ion-row>
@@ -108,7 +108,7 @@ export default {
         maskPhone: maskPhone,
         user: null,
         form: {
-            intent: "rent",
+            intent: "sell",
             condition: "",
             type: "",
             areaMin: "",
@@ -123,7 +123,6 @@ export default {
         placeDetails: null,
         showModalPlaceDetails: false,
         pagination: {},
-        intentText: 'Alugar',
         addressTypeText: 'Cidade'
     }),
     methods: {

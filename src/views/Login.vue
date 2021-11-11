@@ -105,6 +105,8 @@ export default {
     },
     created () {
       this.getUser()
+      this.form.email = null
+      this.form.password = null
     }
 }
 

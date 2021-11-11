@@ -1,6 +1,6 @@
 {
-	"appId": "io.ionic.starter",
-	"appName": "Haluga",
-	"webDir": "dist",
-	"bundledWebRuntime": false
+  "appId": "com.jonathandealmeida.haluga",
+  "appName": "Haluga",
+  "webDir": "public",
+  "bundledWebRuntime": false
 }

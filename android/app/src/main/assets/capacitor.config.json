@@ -1,0 +1,6 @@
+{
+	"appId": "com.jonathandealmeida.haluga",
+	"appName": "Haluga",
+	"webDir": "public",
+	"bundledWebRuntime": false
+}

@@ -126,7 +126,6 @@ export default {
         placeDetails: null,
         placeDeleteId: null,
         maskPhone: maskPhone,
-        count: 0,
         load: false
     }),
     methods: {
@@ -166,7 +165,7 @@ export default {
                 user_id: userId,
                 page: page
             }
-            axios({url: apiUrl + 'get-places', method: 'get', params}).then(response => {
+            axios({url: apiUrl + 'get-places', method: 'get', params, headers: getHeader()}).then(response => {
                 this.places = response.data.data
                 // this.pagination = response.body
                 window.scrollTo(0, 0)
@@ -180,6 +179,7 @@ export default {
         },
         getUser () {
             const userId = window.localStorage.getItem('userId')
+            console.log(userId)
             if (userId) {
                 const params = {}
                 params.user_id = userId
@@ -196,10 +196,6 @@ export default {
         }
     },
     created () {
-        if (this.count === 0) {
-            this.count++
-            // this.$router.go()
-        }
         this.getUser()
     }
 }

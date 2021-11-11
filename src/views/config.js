@@ -1,5 +1,11 @@
-export const apiDomain = 'http://localhost:8000'
-export const apiUrl = 'http://localhost:8000/api/'
+export const apiDomain = 'https://api.haluga.com/public'
+export const apiUrl = 'https://api.haluga.com/public/api/'
+
+// export const apiDomain = 'http://localhost:8000'
+// export const apiUrl = 'http://localhost:8000/api/'
+
+// export const apiDomain = window.location.hostname === 'localhost' ? 'http://localhost:8000' : 'https://api.haluga.com/public'
+// export const apiUrl = window.location.hostname === 'localhost' ? 'http://localhost:8000/api/' : 'https://api.haluga.com/public/api/'
 
 export const getHeader = function () {
   return {

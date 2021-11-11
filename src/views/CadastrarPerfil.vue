@@ -22,7 +22,8 @@
           <ion-input type="password" v-model="form.password"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-button slot="end" @click="formSubmit()">Cadastrar</ion-button>
+          <ion-button v-if="wait" slot="end">Aguarde...</ion-button>
+          <ion-button v-else slot="end" @click="formSubmit()">Cadastrar</ion-button>
           <ion-button slot="start" router-link="login">Login</ion-button>
         </ion-item>
       </ion-content>
@@ -49,7 +50,8 @@ export default {
         status: false,
         type: "",
         message: ""
-      }
+      },
+      wait: false
     }),
     methods: {
       validateForm () {
@@ -79,11 +81,15 @@ export default {
           this.showAlert('danger', 'Insira os dados corretamente')
           return false
         }
+        this.wait = true
         axios({url: apiUrl + 'user-create', method: 'post', data: this.form}).then(response => {
           if (response.data.user_enabled) {
             window.localStorage.setItem('userId', response.data.userId)
             window.localStorage.setItem('authUser', response.data.authUser)
-            this.$router.push('/tabs/meus-imoveis')
+            setTimeout(() => {
+              this.$router.push('/tabs/meus-imoveis')
+              this.wait = false
+            }, 10000)
           } else {
             this.showAlert('danger', response.data.message)
           }
@@ -96,7 +102,7 @@ export default {
           params.user_id = userId
           axios({url: apiUrl + 'get-user', method: 'post', params, headers: getHeader()}).then(response => {
             this.$store.dispatch('users/getUser', response.data)
-            this.$router.push('/tabs/pesquisar-imovel')
+            this.$router.push('/tabs/meus-imoveis')
           }).catch(error => {
             console.log(error)
             this.$store.dispatch('users/getUser', null)
@@ -107,6 +113,9 @@ export default {
     },
     created () {
       this.getUser()
+      this.form.name = null
+      this.form.email = null
+      this.password = null
     }
 }
 

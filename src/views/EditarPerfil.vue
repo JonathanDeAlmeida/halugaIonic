@@ -133,14 +133,19 @@ export default {
               this.$store.dispatch('users/getUser', response.data)
               this.getUserEdit()
             }).catch(error => {
-              console.log(error)
-              this.$store.dispatch('users/getUser', null)
-              logout()
+              if (error.response.status === 401) {
+                this.$store.dispatch('users/getUser', null)
+                logout()
+              }
             })
           }
         }
     },
     created () {
+      this.form.name = null
+      this.form.email = null
+      this.form.password = null
+      this.form.confirmPassword = null
       this.getUser()
     }
 }
