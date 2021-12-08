@@ -52,7 +52,7 @@ export default {
     exit () {
       window.localStorage.clear()
       this.$store.dispatch('users/getUser', null)
-      this.$router.push('/tabs/login')
+      this.$router.push('/tabs/pesquisar-imovel')
     },
     getUser () {
       const userId = window.localStorage.getItem('userId')
