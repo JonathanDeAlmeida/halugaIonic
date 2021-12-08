@@ -5,7 +5,7 @@
               <ion-row>
                   <ion-col class="ion-align-self-start text-align-center">
                     <ion-select style="float: left" v-model="form.intent">
-                      <ion-select-option value="sell">Vender</ion-select-option>
+                      <ion-select-option value="sell">Comprar</ion-select-option>
                       <ion-select-option value="rent">Alugar</ion-select-option>
                     </ion-select>
                   </ion-col>
